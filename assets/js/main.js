@@ -34,7 +34,7 @@ if(count == null){
     localStorage.setItem('count' , '1')
 }
 
-image.addEventListener('click' , (e)=> {
+image.addEventListener('touch' , (e)=> {
 
     let x = e.offsetX;
     let y = e.offsetY;
