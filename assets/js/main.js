@@ -1,5 +1,5 @@
 const body = document.body;
-const $coin = body.querySelector('#coin');
+const image = body.querySelector('#coin');
 const h1 = body.querySelector('h1');
 
 let coins = localStorage.getItem('coins');
@@ -34,7 +34,7 @@ if(count == null){
     localStorage.setItem('count' , '1')
 }
 
-$coin.addEventListener('click' , (e)=> {
+image.addEventListener('tap', (e)=> {
 
     let x = e.offsetX;
     let y = e.offsetY;
@@ -54,21 +54,21 @@ $coin.addEventListener('click' , (e)=> {
     } 
 
     if(x < 150 & y < 150){
-        $coin.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
+        image.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
     }
     else if (x < 150 & y > 150){
-        $coin.style.transform = 'translate(-0.25rem, 0.25rem) skewY(-10deg) skewX(5deg)';
+        image.style.transform = 'translate(-0.25rem, 0.25rem) skewY(-10deg) skewX(5deg)';
     }
     else if (x > 150 & y > 150){
-        $coin.style.transform = 'translate(0.25rem, 0.25rem) skewY(10deg) skewX(-5deg)';
+        image.style.transform = 'translate(0.25rem, 0.25rem) skewY(10deg) skewX(-5deg)';
     }
     else if (x > 150 & y < 150){
-        $coin.style.transform = 'translate(0.25rem, -0.25rem) skewY(10deg) skewX(-5deg)';
+        image.style.transform = 'translate(0.25rem, -0.25rem) skewY(10deg) skewX(-5deg)';
     }
 
 
     setTimeout(()=>{
-        $coin.style.transform = 'translate(0px, 0px)';
+        image.style.transform = 'translate(0px, 0px)';
     }, 100);
 
     body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
@@ -83,5 +83,3 @@ setInterval(()=> {
         body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
     }
 }, 1000);
-
-start()
